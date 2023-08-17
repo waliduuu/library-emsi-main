@@ -1,0 +1,13 @@
+.sections{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+}
+.borrow-left-side{
+
+    background-color: lightblue;
+}
+.borrow-right-side{
+
+    background-color: lightpink;
+}
