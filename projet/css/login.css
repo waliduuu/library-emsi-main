@@ -1,0 +1,57 @@
+.elements{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.description{
+  background-color: lightblue;
+  height: 500px;
+}
+.login-signup{
+  height: 500px;
+}
+.inputemail, .inputpassword{
+  height: 30px;
+  width: 180px;
+  border: none;
+  border-bottom-style: solid;
+}
+.clickherepass:hover{
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.forgotpassword:hover{
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline; 
+}
+.logsincontrol{
+  margin-top: 200px;
+  margin-left: 200px;
+}
+.emailonclick, .passonclick{
+  border-bottom-color: green;
+}
+.accessbuttons{
+  margin-top: 25px;
+}
+.accessbutton, .signupbutton{
+  padding: 10px 10px;
+  border-radius: 12px;
+  border: none;
+  color: white;
+  background-color: black;
+  transition: color 1s, background-color 1s;
+}
+.accessbutton:hover{
+  cursor: pointer;
+  color: black;
+  background-color: white;
+
+
+}
+.signupbutton:hover{
+  cursor: pointer;
+    color: black;
+  background-color: white;
+}
