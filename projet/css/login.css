@@ -55,3 +55,9 @@
     color: black;
   background-color: white;
 }
+.signinor{
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
