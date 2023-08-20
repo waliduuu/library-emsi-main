@@ -25,6 +25,15 @@ class book(models.Model):
   def __str__(self):
     return self.title
   
+  @property
+  def imageURL(self):
+    try:
+      url = self.image.url
+    except:
+      url = ''
+    return url
+      
+  
 #class emprunter
 #on delete means if customer gets deleted the order stays with a null customer
 
