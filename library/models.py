@@ -28,9 +28,9 @@ class book(models.Model):
   @property
   def imageURL(self):
     try:
-      url = self.image.url
+        url = self.image.url
     except:
-      url = ''
+        url = ''
     return url
       
   
@@ -49,7 +49,7 @@ class emprunt(models.Model):
 class bookreturning(models.Model):
   customer = models.ForeignKey(customer, on_delete=models.SET_NULL,blank=True, null=True )
   book = models.ForeignKey(book, on_delete=models.SET_NULL,blank=True, null=True )
-  date_fin_emprunt = models.DateTimeField(auto_now_add=True)
+  date_fin_emprunt = models.DateField()
   transaction_id = models.CharField(max_length=200, null= True)
 
   def __str__(self):
