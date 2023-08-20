@@ -4,13 +4,35 @@
 
 }
 .stats{
-
     background-color: lightblue;
+    height: 500px;
+    text-align: center;
 }
 .borrow-options{
-
+    justify-content: center;
     background-color: lightpink;
+    text-align: center;
 }
 .title{
     margin-top: 50px;
+}
+.finishing-emprunt-picture{
+    height: 350px;
+    margin-top: 30px;
+}
+.Confirm-borrowing-text{
+    margin-top: 140px;
+}
+.Confirm-borrowing-date{
+    height: 40px;
+    width: 150px;
+    color: black;
+    background-color: white;
+}
+.Confirm-borrowing-button{
+    margin-top: 30px;
+    color: white;
+    background-color: black;
+    height: 50px;
+    width: 200px;
 }

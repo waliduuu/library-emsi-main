@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% load static%}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finish borrowing</title>
-    <link rel="stylesheet" href="../css/borrow.css">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="{% static 'css/borrow.css'%}">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
 </head>
 <body>
     <div class="header">
@@ -18,20 +19,36 @@
   
   
         <div class="headeritems">
-          <div><p>Returns</p></div>
-          <div><p>History</p></div>
-          <div><p>Account</p></div>
-          <div><p>My shelf [<span>0</span>]</p></div>
+          <div><p class="headerinsideitems">Returns</p></div>
+          <div><p class="headerinsideitems">History</p></div>
+          <div><p class="headerinsideitems">Account</p></div>
+          <div><p class="headerinsideitems">My shelf [<span>0</span>]</p></div>
         </div>
-  
-  
-        
       </div>
     <div class="title"><p>title</p></div>
 
+
+
     <div class="sections">
-        <div class="stats"> h </div>
-        <div class="borrow-options"> h </div>
+        <div class="stats">
+          <div class="finishing-emprunt-pic"><img class="finishing-emprunt-picture" src="../../../../static/images/mastery.png" alt=""></div>
+          <div class="finishing-emprunt-title"><p>Mastery</p></div>
+          <div class="finishing-emprunt-author"><p>By : Robert Greene</p></div>
+        </div>
+    
+        <div class="borrow-options">
+          <div>
+            <h3 class="Confirm-borrowing-text">Please Select the desired dat to start your borrowing journey</h3>
+            <input class="Confirm-borrowing-date" type="datetime-local">
+          </div>
+          <div>
+            <input type="radio"> by clicking here, you agree to our borrowing rules & policies.
+            <button class="Confirm-borrowing-button">
+              Confirm Borrowing
+            </button>
+          </div>
+
+      </div>
     </div>
 </body>
 </html>
