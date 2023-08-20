@@ -1,13 +1,16 @@
 .sections{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 100vh;
+
 }
-.borrow-left-side{
+.stats{
 
     background-color: lightblue;
 }
-.borrow-right-side{
+.borrow-options{
 
     background-color: lightpink;
+}
+.title{
+    margin-top: 50px;
 }
