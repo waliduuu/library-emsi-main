@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import *
 
 
 # Create your views here.
@@ -11,7 +12,8 @@ def signup(request):
     context = {}
     return render(request, 'library/html/signup.html', context)
 def home(request):
-    context = {}
+    books = book.objects.all()
+    context = {'books':books}
     return render(request, 'library/html/home.html', context)
 def shelf(request):
     context = {}

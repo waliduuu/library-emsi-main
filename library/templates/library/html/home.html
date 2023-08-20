@@ -37,12 +37,23 @@
 
 
       <div class="latestbooks">
+        {% for book in books %}
+
+        <div class="booksstats">
+          <img class="bookimg" src="" alt="">
+          <h4 class="bookstat">{{book.title}}</h4>
+          <p class="bookstat">{{book.category}}</p>
+          <p class="bookstat">by : {{book.author}}</p>
+          <div class="book-borrow-button-container">
+            <button class="book-borrow-button">Borrow</button>
+          </div>
+        </div>
+        {% endfor %}
       </div>
 
 
 
     <div class="madeforyou"></div>
 </body>
-<script src="../scripts/home.js"></script>
 </html>
 
