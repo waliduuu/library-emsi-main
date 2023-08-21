@@ -1,16 +1,15 @@
 .sections{
     display: grid;
     grid-template-columns: 1fr 1fr;
-
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 .stats{
-    background-color: lightblue;
-    height: 500px;
     text-align: center;
 }
 .borrow-options{
     justify-content: center;
-    background-color: lightpink;
     text-align: center;
 }
 .title{
@@ -21,9 +20,10 @@
     margin-top: 30px;
 }
 .Confirm-borrowing-text{
-    margin-top: 140px;
+    margin-bottom: 20px;
 }
 .Confirm-borrowing-date{
+    margin-bottom: 30px;
     height: 40px;
     width: 150px;
     color: black;
@@ -35,4 +35,23 @@
     background-color: black;
     height: 50px;
     width: 200px;
+    transition: color 1s, background-color 1s;
+    border: none;
+    margin-top: 12px;
+}
+.Confirm-borrowing-button:hover{
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+.confirming-rules{
+    margin-bottom: 20px;
+
+}
+.rulespoliciestext{
+    color: blue;
+}
+.rulespoliciestext:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }

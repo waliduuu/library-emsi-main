@@ -43,11 +43,11 @@ class emprunt(models.Model):
     
   def __str__(self):
     return str(self.id)
-  
+ 
 class itemtoemprunt(models.Model):
   emprunt = models.ForeignKey(emprunt, on_delete=models.SET_NULL, blank=True, null=True)
   book = models.ForeignKey(book, on_delete=models.SET_NULL, blank=True, null=True)
-  date_debut_emprunt = models.DateTimeField(auto_now_add=True)
+  date_debut_emprunt = models.DateField()
 
   
 class bookreturning(models.Model):
