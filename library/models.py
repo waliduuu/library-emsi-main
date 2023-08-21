@@ -39,12 +39,16 @@ class book(models.Model):
 
 class emprunt(models.Model):
   customer = models.ForeignKey(customer, on_delete=models.SET_NULL,blank=True, null=True )
-  book = models.ForeignKey(book, on_delete=models.SET_NULL,blank=True, null=True )
-  date_debut_emprunt = models.DateTimeField(auto_now_add=True)
   transaction_id = models.CharField(max_length=200, null= True)
     
   def __str__(self):
     return str(self.id)
+  
+class itemtoemprunt(models.Model):
+  emprunt = models.ForeignKey(emprunt, on_delete=models.SET_NULL, blank=True, null=True)
+  book = models.ForeignKey(book, on_delete=models.SET_NULL, blank=True, null=True)
+  date_debut_emprunt = models.DateTimeField(auto_now_add=True)
+
   
 class bookreturning(models.Model):
   customer = models.ForeignKey(customer, on_delete=models.SET_NULL,blank=True, null=True )
