@@ -27,13 +27,13 @@
       </div>
     <div class="title"><p>title</p></div>
 
-
-
+      
+    {% for item in items %}
     <div class="sections">
         <div class="stats">
-          <div class="finishing-emprunt-pic"><img class="finishing-emprunt-picture" src="../../../../static/images/mastery.png" alt=""></div>
-          <div class="finishing-emprunt-title"><p>Mastery</p></div>
-          <div class="finishing-emprunt-author"><p>By : Robert Greene</p></div>
+          <div class="finishing-emprunt-pic"><img class="finishing-emprunt-picture" src="{{item.book.imageURL}}" alt=""></div>
+          <div class="finishing-emprunt-title"><p>{{item.book.title}}</p></div>
+          <div class="finishing-emprunt-author"><p>By : {{item.book.author}}</p></div>
         </div>
 
     
@@ -52,6 +52,7 @@
           </div>
       </div>
     </div>
+    {% endfor %}
 
 
 </body>
