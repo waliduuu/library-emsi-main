@@ -39,3 +39,15 @@ def shelf(request):
     
     return render(request,'library/html/borrow.html', context )
 
+def myshelf(request):
+    context = {}
+    return render(request, 'library/html/myshelf.html', context)
+
+def returnbook(request):
+    context = {}
+    render(request, 'library/html/return.html', context)
+
+
+def history(request):
+    context = {}
+    render(request, 'library/html/history.html', context)
