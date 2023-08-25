@@ -5,6 +5,6 @@ from .models import *
 
 admin.site.register(customer)
 admin.site.register(book)
-admin.site.register(emprunt)
+admin.site.register(Emprunt)
 admin.site.register(bookreturning)
-admin.site.register(itemtoemprunt)
+admin.site.register(EmpruntItem)
