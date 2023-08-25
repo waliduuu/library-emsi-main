@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
   <link rel="stylesheet" href="{% static 'css/home.css'%}">
+  <script>
+    let user = '{{request.user}}'
+  </script>
  
 </head>
 <body>
@@ -45,7 +48,7 @@
           <p class="bookstat">{{book.category}}</p>
           <p class="bookstat">by : {{book.author}}</p>
           <div class="book-borrow-button-container">
-            <button class="book-borrow-button">Borrow</button>
+          <button data-book="{{book.ISBN}}" data-action="add" class="book-borrow-button update-shelf">Borrow</button>
           </div>
         </div>
         {% endfor %}
@@ -54,6 +57,8 @@
 
 
     <div class="madeforyou"></div>
+
+    <script src="{% static 'scripts/home.js' %}"></script>
 </body>
 </html>
 
