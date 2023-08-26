@@ -40,15 +40,15 @@ const csrftoken = getToken('csrftoken');
 
 
       <div class="headeritems">
-        <div><p>Returns</p></div>
-        <div><p>History</p></div>
-        <div><p>Account</p></div>
-        <div><p>My shelf [<span>0</span>]</p></div>
+        <div><a href=""><p>My Account</p></a></div>
+        <div><a href=""><p>History</p></a></div>
+        <div><a href="{% url 'shelfpage'%}"><p>My shelf</p></a></div>
       </div>
 
 
       
     </div>
+    
     <div class="latest">
 
 
@@ -66,7 +66,8 @@ const csrftoken = getToken('csrftoken');
           <p class="bookstat">{{book.category}}</p>
           <p class="bookstat">by : {{book.author}}</p>
           <div class="book-borrow-button-container">
-          <button data-book="{{book.ISBN}}" data-action="add" class="book-borrow-button update-shelf">Borrow</button>
+          <button
+            data-bookisbn="{{book.ISBN}}" data-action="add" class="book-borrow-button update-shelf">Borrow</button>
           </div>
         </div>
         {% endfor %}
