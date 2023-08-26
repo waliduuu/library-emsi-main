@@ -8,5 +8,6 @@ urlpatterns = [
     path('shelf/',views.shelf, name='shelfpage'),
     path('myshelf/',views.myshelf, name ='myshelfpage'),
     path('returnbook/',views.returnbook, name ='returnpage'),
-    path('history/',views.history, name ='historypage')
+    path('history/',views.history, name ='historypage'),
+    path('updateitem/',views.updateitem, name ='updateitempage')
 ]
