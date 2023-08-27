@@ -5,9 +5,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="{% static 'css/confitmation.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="{% static 'css/confirmation.css' %}">
 </head>
 <body>
   
+  <div class="header">
+    <div>
+      
+    </div>
+    <div class="headersearch">
+      <input placeholder="Search" type="text" name="" id="">
+    </div>
+
+
+    <div class="headeritems">
+      <div><a href=""><p>My Account</p></a></div>
+      <div><a href=""><p>History</p></a></div>
+      <div><a href="{% url 'myshelf'%}"><p>My shelf</p></a></div>
+    </div>   
+  </div>
+  
+
+
+  <div class="conf-elements">
+    <div class="conf-user-info">
+
+      <div class="name-email">
+        <input class="input" type="text" name="" id="" placeholder="Name">
+        <input class="input" type="text" name="" id="" placeholder="Email...">
+      </div>
+
+      <div class="more-infos">
+        <h2>More Infos</h2>
+      </div>
+
+      <div class="inputs-adress">
+        <input class="input" type="text" name="" id="" placeholder="Adress">
+        <input class="input" type="text" name="" id="" placeholder="adress L2">
+        <input class="input" type="text" name="" id="" placeholder="City">
+        <input class="input" type="text" name="" id="" placeholder="State">
+        <input class="input" type="text" name="" id="" placeholder="Zip code">
+      </div>
+      <div class="button-div"><button class="Continue-button">Continue</button></div>
+    </div>
+
+
+    <div class="conf-user-items">
+      <div class="back-to-shelf-button-container"><a href="{% url 'myshelf' %}"><Button class="back-to-shelf-button">Back to Shelf</Button></a></div>
+      <div class="brrowing-summary"><h3>Borrowing Summary</h3></div>
+      <div class="checkout-items">
+        <div>image</div>
+        <div>book name</div>
+        <div>author</div>
+        <div>Category</div>
+      </div>
+      <div class="summary-items">
+        <p class="summary-items-items">items : 2</p>
+        <p class="summary-items-date">Date : 12-12-2023</p>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
