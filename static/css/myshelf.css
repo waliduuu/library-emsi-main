@@ -29,6 +29,11 @@
     border-width: 1px;
 
 }
+.back-to-browsing-button:hover{
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+}
 .wherethebooksare{
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
@@ -47,6 +52,10 @@
     right: 0;
     margin-right: 22px;
 
+}
+.confirm-button:hover{
+    opacity: 0.6;
+    cursor: pointer;
 }
 .container-2{
     border: solid;
@@ -75,7 +84,6 @@
 .container-2-placement{
     align-items: center;
     display: grid;
-    background-color: lightblue;
     position: absolute;
     left: 0;
     right: 0;
