@@ -25,7 +25,11 @@ def shelf(request):
 
     context = {'items':items}
     
-    return render(request,'library/html/borrow.html', context)
+    return render(request,'library/html/myshelf.html', context)
+
+def confirmation(request):
+    context = {}
+    return render(request, 'library/html/confirmation.html', context)
 
 
 def updateitem(request):

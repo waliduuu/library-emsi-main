@@ -1,0 +1,85 @@
+.upper-part{
+    margin-top: 90px;
+    text-align: center;
+}
+.container-1{
+    border: solid;
+    height: 190px;
+    width: 800px;
+    margin: auto;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 20px black;
+    display: grid;
+    position: relative;
+    
+}
+.wherethereturnis{
+    border-bottom-width: 1px;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+}
+.back-to-browsing-button{
+    position: absolute;
+    left: 0;
+    margin-left: 12px;
+    margin-top: 12px;
+    background-color: white;
+    color: black;
+    height: 40px;
+    border-width: 1px;
+
+}
+.wherethebooksare{
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    position: relative;
+}
+.state{
+
+    margin-top: 40px;
+}
+.confirm-button{
+    height: 40px;
+    background-color: green;
+    color: white;
+    border-width: 1px;
+    position: absolute;
+    right: 0;
+    margin-right: 22px;
+
+}
+.container-2{
+    border: solid;
+    height: 190px;
+    width: 800px;  
+    margin: auto;  
+    box-shadow: 3px 3px 20px black;
+    position: relative;
+}
+.the-shelf-content{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.container-2-elements{
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    height: 60px;
+
+    border-bottom-width: 1px;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+}
+.container-2-placement{
+    align-items: center;
+    display: grid;
+    background-color: lightblue;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 61px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}

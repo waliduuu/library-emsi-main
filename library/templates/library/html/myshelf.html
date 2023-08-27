@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finish borrowing</title>
+    <link rel="stylesheet" href="{% static 'css/myshelf.css'%}">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+
+
+</head>
+<body>
+  <div class="header">
+    <div>
+      
+    </div>
+    <div class="headersearch">
+      <input placeholder="Search" type="text" name="" id="">
+    </div>
+
+
+    <div class="headeritems">
+      <div><a href=""><p>My Account</p></a></div>
+      <div><a href=""><p>check History</p></a></div>
+    </div>
+
+
+    
+  </div>
+  <div class="upper-part">
+    <h1> Welcome to your Shelf</h1>
+  </div>
+  <div class="the-shelf-content">
+    <div class="container-1">
+      <div class="wherethereturnis">
+        <button class="back-to-browsing-button">⇦ Back to browsing</button>
+      </div>
+      <div class="wherethebooksare">
+        <div class="state">books : 1 </div>
+        <div class="state">Date : </div>
+        <div class="state"><button class="confirm-button">Confirm Borrowing</button></div>
+      </div>
+    </div>
+    <div class="container-2">
+      <div class="container-2-elements">
+        <div>book image</div>
+        <div>book name</div>
+        <div>book author</div>
+        <div>book category</div>
+        <div>chosen date</div>
+      </div>
+      <div class="container-2-items">
+        <div class="container-2-placement">
+          <div>theimage</div>
+          <div>mastery</div>
+          <div>Robert</div>
+          <div>self dev</div>
+          <div>02*05*2003</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="{% static 'scripts/home.js' %}"></script>
+</body>
+</html>

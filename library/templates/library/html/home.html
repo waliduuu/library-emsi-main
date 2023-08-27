@@ -42,7 +42,7 @@ const csrftoken = getToken('csrftoken');
       <div class="headeritems">
         <div><a href=""><p>My Account</p></a></div>
         <div><a href=""><p>History</p></a></div>
-        <div><a href="{% url 'shelfpage'%}"><p>My shelf</p></a></div>
+        <div><a href="{% url 'myshelf'%}"><p>My shelf</p></a></div>
       </div>
 
 
@@ -77,7 +77,7 @@ const csrftoken = getToken('csrftoken');
 
     <div class="madeforyou"></div>
 
-    <script src="{% static 'scripts/home.js' %}"></script>
+    <script src="{% static 'scripts/myshelf.js' %}"></script>
 </body>
 </html>
 
