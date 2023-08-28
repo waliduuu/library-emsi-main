@@ -7,6 +7,8 @@
   <title>Document</title>
   <link rel="stylesheet" href="{% static 'css/home.css' %}">
   <link rel="stylesheet" href="{% static 'css/confirmation.css' %}">
+  <link rel="stylesheet" href="{% static 'css/myshelf.css' %}">
+
 </head>
 <body>
   
@@ -55,10 +57,12 @@
       <div class="back-to-shelf-button-container"><a href="{% url 'myshelf' %}"><Button class="back-to-shelf-button">Back to Shelf</Button></a></div>
       <div class="brrowing-summary"><h3>Borrowing Summary</h3></div>
       <div class="checkout-items">
-        <div>image</div>
-        <div>book name</div>
-        <div>author</div>
-        <div>Category</div>
+        {% for item in items %}
+        <div><img class="check-img" src="{{item.book.imageURL}}" alt=""></div>
+        <div>book title: {{item.book.title}}</div>
+        <div>by: {{item.book.author}}</div>
+        <div>category: {{item.book.category}}</div>
+        {% endfor %}
       </div>
       <div class="summary-items">
         <p class="summary-items-items">items : 2</p>

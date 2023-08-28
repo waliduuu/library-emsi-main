@@ -28,7 +28,15 @@ def shelf(request):
     return render(request,'library/html/myshelf.html', context)
 
 def confirmation(request):
-    context = {}
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        emprunt, created = Emprunt.objects.get_or_create(customer=customer, complete=False)
+        items = emprunt.empruntitem_set.all()
+    else:
+        items =[] 
+
+    context = {'items':items, 'emprunt':emprunt,}
+
     return render(request, 'library/html/confirmation.html', context)
 
 
@@ -36,16 +44,6 @@ def updateitem(request):
     data = json.loads(request.body)
     bookISBN = data['bookISBN']
     action = data['action']
-
-
     print(bookISBN)
     print(action)
-
-
-    customer = request.user.customer
-    book = book.objects.get(ISBN = bookISBN)
-    emprunt, created = Emprunt.objects.get_or_create(customer=customer, complete=False)
-    empruntItem, created = EmpruntItem.objects.get_or_create(emprunt=emprunt, book=book)
-
-
     return JsonResponse('item was added', safe=False)

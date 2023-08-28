@@ -19,7 +19,7 @@ class book(models.Model):
   author = models.CharField(max_length=30, null=True)
   category = models.CharField(max_length=30, null=True)
   ISBN = models.CharField(max_length=30, null=True)
-  status = models.BooleanField(default=True)
+  status = models.CharField(max_length=30, null=True)
   image = models.ImageField(null=True, blank=True)
 
   def __str__(self):
@@ -41,6 +41,7 @@ class Emprunt(models.Model):
   customer = models.ForeignKey(customer, on_delete=models.SET_NULL,blank=True, null=True )
   transaction_id = models.CharField(max_length=200, null= True)
   complete = models.BooleanField(default=False, null=True, blank=False)
+  date_emprunt = models.DateField(null=True)
 
   def __str__(self):
     return str(self.id)
@@ -48,14 +49,28 @@ class Emprunt(models.Model):
 class EmpruntItem(models.Model):
   book = models.ForeignKey(book, on_delete=models.SET_NULL, blank=True, null=True)
   emprunt = models.ForeignKey(Emprunt, on_delete=models.SET_NULL, blank=True, null=True)
-  date_debut_emprunt = models.DateField()
+  date_added = models.DateTimeField(auto_now_add=True)
 
-  
+class confirmationAdress(models.Model):
+  customer = models.ForeignKey(customer, on_delete=models.SET_NULL,blank=True, null=True )
+  emprunt = models.ForeignKey(Emprunt, on_delete=models.SET_NULL, blank=True, null=True)
+  address = models.CharField(max_length=30, null=True)
+  addressl2 = models.CharField(max_length=30, null=True)
+  city = models.CharField(max_length=30, null=True)
+  state = models.CharField(max_length=30, null=True)
+  zipcode = models.CharField(max_length=30, null=True)
+  date_added = models.DateTimeField(auto_now_add=True)
+
+
+
 class bookreturning(models.Model):
   customer = models.ForeignKey(customer, on_delete=models.SET_NULL,blank=True, null=True )
   book = models.ForeignKey(book, on_delete=models.SET_NULL,blank=True, null=True )
-  date_fin_emprunt = models.DateField()
+  date_fin_emprunt = models.DateField(auto_now_add=True)
   transaction_id = models.CharField(max_length=200, null= True)
 
+
   def __str__(self):
-    return str(self.thereturn) 
+    return self.address
+
+

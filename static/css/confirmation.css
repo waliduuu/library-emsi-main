@@ -73,7 +73,7 @@
   border-color: black;
   border-style: solid;
   width: 400px;
-  height: 260px;
+  height: 360px;
   box-shadow: 2px 2px 8px black;
 
 }
@@ -108,7 +108,7 @@
   text-align: center;
   align-items: center;
   display: grid;
-  height: 70px;
+  height: 170px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   border-bottom-style: solid;
   border-bottom-color: black;

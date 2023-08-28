@@ -15,21 +15,21 @@ for(let i=0; i < updatebuttons.length; i++){
 
 function updateuserorder(bookISBN, action){
   console.log('user is logged in')
-  let url = '/pages/updateitem/'
+  var url = '/pages/update_item/'
 
   fetch(url, { 
-    method: 'POST',
+    method:'POST',
     headers:{
-      'content-type' : 'application/json',
-      'X-CSRFToken': csrftoken,
+      'Content-Type':'application/json',
+      'X-CSRFToken':csrftoken
     },
-    body:JSON.stringify({bookISBN, action})
+    body:JSON.stringify({'bookISBN': bookISBN, 'action': action})
   })
 
-  .then((Response) => {
-    return Response.json()
+  .then((response) =>{
+    return response.json()
   })
-  .then((data) => {
+  .then((data) =>{
     console.log(data)
   })
 }

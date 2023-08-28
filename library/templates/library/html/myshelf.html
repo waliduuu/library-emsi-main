@@ -50,15 +50,18 @@
         <div>book category</div>
         <div>chosen date</div>
       </div>
+
+      {% for item in items %}
       <div class="container-2-items">
         <div class="container-2-placement">
-          <div>theimage</div>
-          <div>mastery</div>
-          <div>Robert</div>
-          <div>self dev</div>
-          <div>02*05*2003</div>
+          <div><img class="check-img" src="{{item.book.imageURL}}" alt=""></div>
+          <div>{{item.book.title}}</div>
+          <div>{{item.book.author}}</div>
+          <div>{{item.book.category}}</div>
+          <div><input type="date" name="" id=""></div>
         </div>
       </div>
+      {% endfor %}
     </div>
   </div>
   <script src="{% static 'scripts/home.js' %}"></script>

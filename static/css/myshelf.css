@@ -91,3 +91,6 @@
     top: 61px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
+.check-img{
+    height: 120px;
+}
