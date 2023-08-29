@@ -54,16 +54,16 @@
 
 
     <div class="conf-user-items">
-      <div class="back-to-shelf-button-container"><a href="{% url 'myshelf' %}"><Button class="back-to-shelf-button">Back to Shelf</Button></a></div>
+      <div class="back-to-shelf-button-container"><a href="{% url 'myshelf' %}"><Button class="back-to-shelf-button">⇦ Back to Shelf</Button></a></div>
       <div class="brrowing-summary"><h3>Borrowing Summary</h3></div>
-      <div class="checkout-items">
-        {% for item in items %}
+      {% for item in items %}
+      <div class="checkout-items">        
         <div><img class="check-img" src="{{item.book.imageURL}}" alt=""></div>
         <div>book title: {{item.book.title}}</div>
         <div>by: {{item.book.author}}</div>
-        <div>category: {{item.book.category}}</div>
-        {% endfor %}
+        <div>category: {{item.book.category}}</div>        
       </div>
+      {% endfor %}
       <div class="summary-items">
         <p class="summary-items-items">items : 2</p>
         <p class="summary-items-date">Date : 12-12-2023</p>

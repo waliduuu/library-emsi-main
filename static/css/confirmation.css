@@ -6,16 +6,12 @@
   border-color: black;
   box-shadow: 2px 2px 8px black;
 }
-
 .conf-elements{
   margin-top: 250px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-
-  
+  justify-content: center; 
 }
-
 .name-email{
   align-items: center;
   text-align: center;
@@ -59,23 +55,17 @@
   background-color: rgb(9, 165, 9);
   color: white;
   border-width: 1px;
-
 }
-
 .Continue-button:hover{
   opacity: 0.8;
   cursor: pointer;
-
 }
-
 .conf-user-items{
   border-width: 1px;
   border-color: black;
   border-style: solid;
   width: 400px;
-  height: 360px;
   box-shadow: 2px 2px 8px black;
-
 }
 .back-to-shelf-button-container{
   height: 40px;
@@ -83,15 +73,13 @@
   padding-left: 12px;
   border-bottom-style: solid;
   border-bottom-color: black;
-  border-bottom-width: 1px;
-  
+  border-bottom-width: 1px; 
 }
 .back-to-shelf-button{
   border-width: 1px;
   height: 30px;
   background-color: white;
 }
-
 .back-to-shelf-button:hover{
   background-color: rgb(163, 161, 161);
   color: white;
@@ -104,23 +92,19 @@
   border-bottom-width: 1px;
 }
 .checkout-items{
+  padding: 7px;
   justify-content: center;
   text-align: center;
   align-items: center;
   display: grid;
-  height: 170px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   border-bottom-style: solid;
   border-bottom-color: black;
-  border-bottom-width: 1px;
-  
+  border-bottom-width: 1px; 
 }
-
 .summary-items{
   padding-left: 12px;
 }
-
-
 .summary-items-items, .summary-items-date{
   margin-top: 8px;
   padding: 0;
