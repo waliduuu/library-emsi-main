@@ -8,16 +8,50 @@
   right: 0;
   top: 0;
   bottom: 0;
+  border-bottom-style: solid;
+  border-bottom-color: black;
 }
 .headeritems{
   align-items: center;
   text-align: center;
+  justify-content: end;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 95px 85px 85px;
+  column-gap: 5px;
+}
+.homebutton{
+  margin-left: 20px;
+  width: 90px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.homebutton2{
+  justify-content: center;
+  padding-top: 17px;
+  align-items: center;
+}
+.headeritemelement{
+  margin-right: 12px;
+
+}
+.try{
+  color: black;
+  text-decoration: none;
+}
+.try:hover{
+  text-decoration: underline;
+  cursor: pointer;
 }
 .headersearch{
-  padding-top: 18px;
+  padding-top: 16px;
   text-align: center;
+}
+.headerinput{
+  height: 30px;
+  width: 190px;
+  font-weight: 400;
+  font-size: medium;
 }
 .latest{
   margin-top: 130px;

@@ -66,3 +66,13 @@ def updateitem(request):
         empruntitem.delete()
 
     return JsonResponse('item was added', safe=False)
+
+
+
+def account(request):
+    context = {}
+    return render(request, 'library/html/account.html', context)
+
+def history(request):
+    context = {}
+    return render(request, 'library/html/history.html', context)
