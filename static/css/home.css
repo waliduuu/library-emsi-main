@@ -1,4 +1,5 @@
-body {
+body { 
+  color: wheat;
   background-image: url("../images/background/back.jpeg");
  }
 .header{
