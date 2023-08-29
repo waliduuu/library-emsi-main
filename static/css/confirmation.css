@@ -16,7 +16,6 @@
   align-items: center;
   text-align: center;
   justify-content: center;
-  background-color: white;
   height: 40px;
   margin-top: 12px;
   border-bottom-style: solid;
@@ -27,6 +26,18 @@
   height: 23px;
   margin-left: 12px;
   margin-bottom: 12px;
+  background-color: transparent;
+}
+.input:focus{
+  outline: none;
+}
+.input::-webkit-input-placeholder {
+  padding-left: 5px;
+  font-size: 15px;
+  color: #3c3c3c;
+}
+.input::placeholder{
+  color: white;
 }
 .more-infos{
   justify-content: center;
@@ -52,12 +63,15 @@
   left: 12px;
   right: 12px;
   height: 30px;
-  background-color: rgb(9, 165, 9);
+  background-color: black;
   color: white;
   border-width: 1px;
+  transition: color 1s, background-color 1s;
+
 }
 .Continue-button:hover{
-  opacity: 0.8;
+  background-color: white;
+  color: black;
   cursor: pointer;
 }
 .conf-user-items{
@@ -78,11 +92,13 @@
 .back-to-shelf-button{
   border-width: 1px;
   height: 30px;
-  background-color: white;
+  background-color: black;
+  color: white;
+  transition: color 1s, backround-color 1s;
 }
 .back-to-shelf-button:hover{
-  background-color: rgb(163, 161, 161);
-  color: white;
+  background-color: white;
+  color: black;
   cursor: pointer;
 }
 .brrowing-summary{

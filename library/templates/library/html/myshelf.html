@@ -12,25 +12,28 @@
 </head>
 <body>
   <div class="header">
-    <div>
-      
+    <div class="homebutton">
+      <div class="homebutton2"><a class="try"  href="{% url 'home'%}"><img class="home-image" src="{% static 'images/home.png' %}" alt=""></a></div>
     </div>
     <div class="headersearch">
-      <input placeholder="Search" type="text" name="" id="">
+      <input class="headerinput" placeholder="Search..." type="text" name="" id="">
     </div>
 
 
     <div class="headeritems">
-      <div><a href=""><p>My Account</p></a></div>
-      <div><a href=""><p>check History</p></a></div>
+      <div class="headeritemelement"><a class="try" href="{% url 'myshelf' %}"><img class="shelf-image" src="{% static 'images/shelf.jpeg'%}" alt=""></a></div>
+      <div class="headeritemelement"><a class="try" href="{% url 'history' %}"><img class="history-image" src="{% static 'images/history.png' %}" alt=""></a></div>
+      <div class="headeritemelement"><a class="try" href="{% url 'account' %}"><img class="account-image" src="{% static 'images/account.png' %}" alt=""></a></div>
     </div>
 
-
-    
   </div>
+
+
   <div class="upper-part">
     <h1> Welcome to your Shelf</h1>
   </div>
+
+  
   <div class="the-shelf-content">
     <div class="container-1">
       <div class="wherethereturnis">
