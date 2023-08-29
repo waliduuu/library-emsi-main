@@ -8,7 +8,7 @@ import json
 # here.
 
 def home(request):
-    books = book.objects.all()
+    books = Book.objects.all()
     context = {'books':books}
     return render(request, 'library/html/home.html', context)
 
@@ -42,9 +42,27 @@ def confirmation(request):
 
 def updateitem(request):
     data = json.loads(request.body)
-    bookISBN = data['bookISBN']
+    bookid = data['bookid']
     action = data['action']
-    print(bookISBN)
+
+
+    print(bookid)
     print(action)
+
+    customer = request.user.customer
+    book = Book.objects.get(id=bookid)
+    emprunt, created = Emprunt.objects.get_or_create(customer=customer, complete=False)
+
+    empruntitem, created = EmpruntItem.objects.get_or_create(emprunt=emprunt, book=book)
+
+    if action == 'add':
+        empruntitem.quantity +=1
+    elif action == 'remove':
+        empruntitem.quantity -=1
+
+    empruntitem.save()
+
+    if empruntitem.quantity <= 0:
+        empruntitem.delete()
 
     return JsonResponse('item was added', safe=False)

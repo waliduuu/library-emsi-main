@@ -42,26 +42,33 @@
         <div class="state"><a href="{% url 'confirmation' %}"><button class="confirm-button">Confirm Borrowing</button></a></div>
       </div>
     </div>
-    <div class="container-2">
+    
+
+    <div class="container-2">      
       <div class="container-2-elements">
         <div>book image</div>
         <div>book name</div>
         <div>book author</div>
-        <div>book category</div>
+        <div>book Number</div>
         <div>chosen date</div>
       </div>
 
-      {% for item in items %}
-      <div class="container-2-items">
+      
+
+
+      <div class="container-items">
+        {% for item in items %}
         <div class="container-2-placement">
           <div><img class="check-img" src="{{item.book.imageURL}}" alt=""></div>
           <div>{{item.book.title}}</div>
           <div>{{item.book.author}}</div>
-          <div>{{item.book.category}}</div>
+          <div>{{item.quantity}}</div>
           <div><input type="date" name="" id=""></div>
         </div>
+        {% endfor %}
       </div>
-      {% endfor %}
+
+
     </div>
   </div>
   <script src="{% static 'scripts/myshelf.js' %}"></script>

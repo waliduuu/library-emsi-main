@@ -1,19 +1,19 @@
 let updatebuttons = document.getElementsByClassName("update-shelf")
 for(let i=0; i < updatebuttons.length; i++){
   updatebuttons[i].addEventListener('click', function(){
-    let bookISBN = this.dataset.bookisbn
+    let bookid = this.dataset.book
     let action = this.dataset.action
-    console.log(bookISBN, action)
+    console.log(bookid, action)
     if(user === 'AnonymousUser'){
       console.log('anon user')
     }else{
-      updateuserorder(bookISBN, action);
+      updateuserorder(bookid, action);
     }
   })
 }
 
 
-function updateuserorder(bookISBN, action){
+function updateuserorder(bookid, action){
   console.log('user is logged in')
   var url = '/pages/update_item/'
 
@@ -23,7 +23,7 @@ function updateuserorder(bookISBN, action){
       'Content-Type':'application/json',
       'X-CSRFToken':csrftoken
     },
-    body:JSON.stringify({'bookISBN': bookISBN, 'action': action})
+    body:JSON.stringify({'bookid': bookid, 'action': action})
   })
 
   .then((response) =>{

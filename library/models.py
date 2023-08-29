@@ -14,7 +14,7 @@ class customer(models.Model):
 
 
 #class book
-class book(models.Model):
+class Book(models.Model):
   title = models.CharField(max_length=30, null=True)
   author = models.CharField(max_length=30, null=True)
   category = models.CharField(max_length=30, null=True)
@@ -47,11 +47,13 @@ class Emprunt(models.Model):
     return str(self.id)
  
 class EmpruntItem(models.Model):
-  book = models.ForeignKey(book, on_delete=models.SET_NULL, blank=True, null=True)
+  book = models.ForeignKey(Book, on_delete=models.SET_NULL, blank=True, null=True)
   emprunt = models.ForeignKey(Emprunt, on_delete=models.SET_NULL, blank=True, null=True)
   date_added = models.DateTimeField(auto_now_add=True)
+  quantity = models.IntegerField(default=0, null=True, blank=True)
 
-class confirmationAdress(models.Model):
+
+class ConfirmationAdress(models.Model):
   customer = models.ForeignKey(customer, on_delete=models.SET_NULL,blank=True, null=True )
   emprunt = models.ForeignKey(Emprunt, on_delete=models.SET_NULL, blank=True, null=True)
   address = models.CharField(max_length=30, null=True)
@@ -65,7 +67,7 @@ class confirmationAdress(models.Model):
 
 class bookreturning(models.Model):
   customer = models.ForeignKey(customer, on_delete=models.SET_NULL,blank=True, null=True )
-  book = models.ForeignKey(book, on_delete=models.SET_NULL,blank=True, null=True )
+  book = models.ForeignKey(Book, on_delete=models.SET_NULL,blank=True, null=True )
   date_fin_emprunt = models.DateField(auto_now_add=True)
   transaction_id = models.CharField(max_length=200, null= True)
 

@@ -59,11 +59,9 @@
 }
 .container-2{
     border: solid;
-    height: 190px;
     width: 800px;  
     margin: auto;  
     box-shadow: 3px 3px 20px black;
-    position: relative;
 }
 .the-shelf-content{
     justify-content: center;
@@ -76,20 +74,19 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     height: 60px;
-
     border-bottom-width: 1px;
     border-bottom-color: black;
     border-bottom-style: solid;
 }
 .container-2-placement{
+    height: 130px;
     align-items: center;
     display: grid;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 61px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    border-bottom-width: 2px;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+
 }
 .check-img{
     height: 120px;
