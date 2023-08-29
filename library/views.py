@@ -46,4 +46,5 @@ def updateitem(request):
     action = data['action']
     print(bookISBN)
     print(action)
+
     return JsonResponse('item was added', safe=False)
