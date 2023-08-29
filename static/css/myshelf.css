@@ -11,6 +11,7 @@
     box-shadow: 3px 3px 20px black;
     display: grid;
     position: relative;
+    background-color: wheat;
     
 }
 .wherethereturnis{
@@ -23,16 +24,16 @@
     left: 0;
     margin-left: 12px;
     margin-top: 12px;
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
     height: 40px;
     border-width: 1px;
-
+    transition: color 1s, background-color 1s;
 }
 .back-to-browsing-button:hover{
     cursor: pointer;
-    background-color: gray;
-    color: white;
+    background-color: white;
+    color: black;
 }
 .wherethebooksare{
     display: grid;
@@ -45,19 +46,24 @@
 }
 .confirm-button{
     height: 40px;
-    background-color: green;
+    background-color: black;
     color: white;
     border-width: 1px;
     position: absolute;
     right: 0;
     margin-right: 22px;
+    transition: color 1s, background-color 1s;
+
 
 }
 .confirm-button:hover{
     opacity: 0.6;
     cursor: pointer;
+    color: black;
+    background-color: white;
 }
 .container-2{
+    background-color: wheat;
     border: solid;
     width: 800px;  
     margin: auto;  
