@@ -97,3 +97,18 @@
 .check-img{
     height: 120px;
 }
+.test{
+    height: 80px;
+}
+.Remove-button{
+    height: 30px;
+    color: black;
+    margin-top: 12px;
+    width: 90px;
+    background-color: rgb(241, 41, 41);
+}
+.Remove-button:hover{
+    opacity: 0.6;
+    color: white;
+    cursor: pointer;
+}

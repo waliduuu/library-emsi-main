@@ -43,6 +43,7 @@ const csrftoken = getToken('csrftoken');
         <div class="headeritemelement"><a class="try" href="{% url 'myshelf' %}"><img class="shelf-image" src="{% static 'images/shelf.jpeg'%}" alt=""></a></div>
         <div class="headeritemelement"><a class="try" href="{% url 'history' %}"><img class="history-image" src="{% static 'images/history.png' %}" alt=""></a></div>
         <div class="headeritemelement"><a class="try" href="{% url 'account' %}"><img class="account-image" src="{% static 'images/account.png' %}" alt=""></a></div>
+        <div><p><a href="{% url 'logout' %}">Logout</a></p></div>
       </div>
 
     </div>
@@ -55,6 +56,7 @@ const csrftoken = getToken('csrftoken');
 
       <div class="latestbooks">
         {% for book in books %}
+        
 
         <div class="booksstats">
           <img class="bookimg" src="{{book.imageURL}}" alt="">
@@ -62,8 +64,18 @@ const csrftoken = getToken('csrftoken');
           <p class="bookstat">{{book.category}}</p>
           <p class="bookstat">by : {{book.author}}</p>
           <div class="book-borrow-button-container">
-          <button
-            data-book="{{book.id}}" data-action="add" class="book-borrow-button update-shelf">Borrow</button>
+          {% if book.status == '1' %}
+            <button
+              onclick="
+                alert('book added to shelf, please proceed to pick your starting date to see if this item is available to borrow.')
+              "  data-book="{{book.id}}" data-action="add" class="book-borrow-button update-shelf">
+              Borrow
+            </button>
+          {% else %}
+            <button class="book-borrow-button-un">
+              Not available
+            </button>
+          {% endif %}
           </div>
         </div>
         {% endfor %}

@@ -1,5 +1,8 @@
 body { 
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/main
   background-image: url("../images/background/back.jpeg");
  }
 .header{
@@ -19,7 +22,7 @@ body {
   text-align: center;
   justify-content: end;
   display: grid;
-  grid-template-columns: 95px 85px 85px;
+  grid-template-columns: 95px 85px 85px 70px;
   column-gap: 5px;
 }
 .homebutton{
@@ -115,18 +118,7 @@ body {
   margin-bottom: 12px;
   transition : color 1s , background-color 1s;
 }
-.book-not-borrow-button{
-  background-color: gray;
-  color: white;
-  border: none;
-  height: 40px;
-  width: 90px;
-  margin-top: 12px;
-  margin-bottom: 12px;
-}
-.book-not-borrow-button:hover{
-  cursor: not-allowed;
-}
+
 .book-borrow-button:hover{
   background-color: white;
   color: black;
@@ -136,4 +128,17 @@ body {
 .headerinsideitems:hover{
   text-decoration: underline;
   cursor: pointer;
+}
+
+.book-borrow-button-un{
+  background-color: gray;
+  color: white;
+  border: none;
+  height: 40px;
+  width: 90px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.book-borrow-button-un:hover{
+  cursor: not-allowed;
 }

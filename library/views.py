@@ -1,19 +1,126 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from django.http import JsonResponse
 import json
 
+from .forms import CreateUserForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+
+from django.contrib.auth import authenticate, login, logout
+
+from django.contrib.auth.decorators import login_required
+from .decorators import unauthenticated_user
+
+
 
 # Create your view
 # here.
+@unauthenticated_user
+def loginpage(request):
 
+    if request.method == 'POST':
+        Username = request.POST.get('username')
+        Password = request.POST.get('password')
+
+
+        customer = authenticate(request, username=Username, password=Password)
+
+        if customer is not None:
+            login(request,customer)
+            return redirect('home')
+        else:
+            messages.info(request, 'username or password incorrect')
+        
+
+    context = {}
+    return render(request, 'library/html/login.html', context)
+
+
+
+
+
+
+
+
+
+
+
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
+
+
+
+
+
+
+
+
+
+
+@unauthenticated_user
+def register(request):
+    
+    form = CreateUserForm()
+
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            username = form.cleaned_data.get('username')
+            
+            customer.objects.create(
+                user=user,
+            )
+
+            messages.success(request, 'account was created for' + username)
+
+            return redirect('login')
+
+
+    context = {'form': form}
+    return render(request, 'library/html/register.html', context)
+
+
+
+
+
+
+
+
+
+
+
+@login_required(login_url='login')
 def home(request):
+    
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        emprunt, created = Emprunt.objects.get_or_create(customer=customer, complete=False)
+        items = emprunt.empruntitem_set.all()
+    else:
+        items =[] 
+        emprunt = {'addy': False}
+
+    context = {'items':items}        
+
+
+
+
     books = Book.objects.all()
     context = {'books':books}
     return render(request, 'library/html/home.html', context)
 
 
 
+
+
+
+
+
+
+@login_required(login_url='login')
 def shelf(request):
 
     if request.user.is_authenticated:
@@ -22,11 +129,19 @@ def shelf(request):
         items = emprunt.empruntitem_set.all()
     else:
         items =[] 
+        emprunt = {'addy': False}
 
-    context = {'items':items}
+    context = {'items':items, 'emprunt': emprunt}
     
     return render(request,'library/html/myshelf.html', context)
 
+
+
+
+
+
+
+@login_required(login_url='login')
 def confirmation(request):
     if request.user.is_authenticated:
         customer = request.user.customer
@@ -38,6 +153,15 @@ def confirmation(request):
     context = {'items':items, 'emprunt':emprunt,}
 
     return render(request, 'library/html/confirmation.html', context)
+
+
+
+
+
+
+
+
+
 
 
 def updateitem(request):
@@ -69,10 +193,36 @@ def updateitem(request):
 
 
 
+
+
+
+
+
+
+
+
+
+
+@login_required(login_url='login')
 def account(request):
     context = {}
     return render(request, 'library/html/account.html', context)
 
+
+
+
+
+
+
+
+
+
+
+
+
+@login_required(login_url='login')
 def history(request):
     context = {}
     return render(request, 'library/html/history.html', context)
+
+
