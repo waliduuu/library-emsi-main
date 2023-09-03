@@ -10,7 +10,9 @@ class customer(models.Model):
   email = models.CharField(max_length=200, null=True)
 # the return to see on the admin panel 
   def __str__(self):
-    return self.name
+    if self.name:
+      return self.name
+    return "Customer ID: {self.id}"
 
 
 #class book
@@ -45,6 +47,11 @@ class Emprunt(models.Model):
 
   def __str__(self):
     return str(self.id)
+  
+  @property
+  def addy(self):
+    addy = True
+    return addy
  
 class EmpruntItem(models.Model):
   book = models.ForeignKey(Book, on_delete=models.SET_NULL, blank=True, null=True)

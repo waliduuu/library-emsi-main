@@ -1,0 +1,92 @@
+body{
+  background-color: black;
+  color: white;
+}
+.container{
+  height: 100vh;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+}
+.theform-login{
+  height: 200px;
+  width: 200px;
+  margin: auto;
+  margin-top: 350px;
+
+}
+.theform-signup{
+  height: 200px;
+  width: 400px;
+  margin: auto;
+  margin-top: 250px;
+}
+.slbutton{
+  height: 35px;
+  width: 80px;
+}
+.slbutton:hover{
+  background-color: gray;
+  cursor: pointer;
+}
+.login-text{
+  color: white;
+}
+input{
+  margin-bottom: 18px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-bottom-color: white;
+  border-bottom-style: dashed;
+  border-bottom-width: 0.5px;
+  border-left-color: white;
+  border-left-style: dashed;
+  border-left-width: 0.5px;
+  display: block;
+  margin-left: 100px;
+}
+.inputlogin{
+  margin-bottom: 18px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-bottom-color: white;
+  border-bottom-style: dashed;
+  border-bottom-width: 0.5px;
+  border-left-color: white;
+  border-left-style: dashed;
+  border-left-width: 0.5px;
+  display: block;
+  margin-left: -1px;
+}
+.input:focus{
+  outline: none;
+}
+.redirect{
+  color: Blue;
+  text-decoration: none;
+
+}
+.redirect:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+.redirectregister{
+  display: inline-block;
+  color: Blue;
+  margin-left: 8px;
+  text-decoration: none;
+
+}
+.redirectregister:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
