@@ -79,3 +79,50 @@ function updateuserorderneg(bookid, action){
     console.log(data)
   })
 }
+
+
+
+
+
+
+
+
+
+
+let addtohistorybuttons = document.getElementsByClassName("history-confirm")
+for(let i=0; i < addtohistorybuttons.length; i++){
+  addtohistorybuttons[i].addEventListener('click', function(){
+    let bookid = this.dataset.book
+    let action = this.dataset.action
+    console.log(bookid, action)
+    if(user === 'AnonymousUser'){
+      console.log('anon user')
+    }else{
+      additemtohistory(bookid, action);
+    }
+  })
+}
+
+
+
+
+function additemtohistory(bookid, action){
+  console.log('user is logged in')
+  var url = '/pages/update_history/'
+
+  fetch(url, { 
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json',
+      'X-CSRFToken':csrftoken
+    },
+    body:JSON.stringify({'bookid': bookid, 'action': action})
+  })
+
+  .then((response) =>{
+    return response.json()
+  })
+  .then((data) =>{
+    console.log(data)
+  })
+}

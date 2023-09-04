@@ -1,0 +1,59 @@
+.history-items{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 2fr 2fr;
+  background-color: lightblue;
+  width: 900px;
+  border: black;
+  border-width: 3px;
+  border-style: dashed;
+  text-align: center;
+  align-items: center;
+}
+.check-img{
+  height: 100px;
+}
+
+.history-summary{
+  text-align: center;
+  margin-bottom: 90px;
+  margin-top: 180px;
+}
+.history-list-container{
+  margin-top: 150px;
+}
+.history-label-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 2fr 2fr;
+  width: 900px;
+  text-align: center;
+  align-items: center;
+  border-color: black;
+  border-width: 3px;
+  border-style: dashed;
+  height: 40px;
+  background-color: white;
+
+
+}
+.labels{
+border-right-color: black;
+border-right-width: 3px;
+border-right-style: solid;
+}
+
+.Return-button{
+  width: 100px;
+  margin: auto;
+  height: 40px;
+  color: white;
+  background-color: black;
+  transition: color 0.5s, background-color 0.5s;
+}
+.Return-button:hover{
+  width: 100px;
+  margin: auto;
+  height: 40px;
+  color: black;
+  background-color: white;
+  cursor: pointer;
+}

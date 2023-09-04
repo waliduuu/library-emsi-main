@@ -176,7 +176,6 @@ def updateitem(request):
     customer = request.user.customer
     book = Book.objects.get(id=bookid)
     emprunt, created = Emprunt.objects.get_or_create(customer=customer, complete=False)
-
     empruntitem, created = EmpruntItem.objects.get_or_create(emprunt=emprunt, book=book)
 
     if action == 'add':
@@ -194,7 +193,47 @@ def updateitem(request):
 
 
 
+
+
+@login_required(login_url='login')
+def updatehistory(request): 
+
+    data = json.loads(request.body)
+    bookid = data['bookid']
+    action = data['action']
+
+
+    print(bookid)
+    print(action)
+
+    customer = request.user.customer
+    book = Book.objects.get(id=bookid)
+    emprunt, created = Emprunt.objects.get_or_create(customer=customer, complete=False)
+    empruntitem, created = EmpruntItem.objects.get_or_create(emprunt=emprunt, book=book)
+    history, created = BookHistory.objects.get_or_create(customer=customer, book=book)
     
+    empruntitem.delete()
+    emprunt.delete()
+    history.save()
+    return JsonResponse('item was added to history', safe=False)
+
+
+def history(request):
+    if request.user.is_authenticated:
+
+        customer = request.user.customer
+        historyitems = BookHistory.objects.filter(customer=customer)
+    
+    else:
+        historyitems =[] 
+
+    context = {'historyitems': historyitems}
+    
+    return render(request,'library/html/history.html', context)
+
+
+
+
 
 def deleteitem(request):
     data = json.loads(request.body)
@@ -248,9 +287,6 @@ def account(request):
 
 
 
-@login_required(login_url='login')
-def history(request):
-    context = {}
-    return render(request, 'library/html/history.html', context)
+
 
 

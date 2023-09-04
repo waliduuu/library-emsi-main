@@ -63,7 +63,9 @@ const csrftoken = getToken('csrftoken');
       <div class="wherethebooksare">
         <div class="state">books : 1 </div>
         <div class="state">Date : </div>
-        <div class="state"><a href="{% url 'confirmation' %}"><button class="confirm-button">Confirm Borrowing</button></a></div>
+        <div class="state"><a href="{% url 'confirmation' %}"><button onclick="
+          clearshelf();
+        " class="confirm-button clear-shelf">Confirm Borrowing</button></a></div>
       </div>
     </div>
     
@@ -82,7 +84,7 @@ const csrftoken = getToken('csrftoken');
 
       <div class="container-items">
         {% for item in items %}
-        <div class="container-2-placement">
+        <div class="container-2-placement itemstoempty">
           <div><img class="check-img" src="{{item.book.imageURL}}" alt=""></div>
           <div>{{item.book.title}}</div>
           <div>{{item.book.author}}</div>
@@ -90,6 +92,7 @@ const csrftoken = getToken('csrftoken');
           <div class="test">
             <input type="date" name="" id="">
             <button data-book="{{item.book.id}}" data-action="remove" class="Remove-button remove-shelf">Remove</button>
+            <button data-book="{{item.book.id}}" data-action="Confirm" class="history-confirm">Confirm</button>
           </div>
         </div>
         {% endfor %}

@@ -1,11 +1,93 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>history</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/confirmation.css' %}">
+    <link rel="stylesheet" href="{% static 'css/history.css' %}">
+
+<script>
+    let user = '{{request.user}}'
+  
+  function getToken(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+         
+            }
+      }
+  }
+  return cookieValue;
+  }
+  const csrftoken = getToken('csrftoken');
+</script>
+
+
+
+
 </head>
 <body>
-    
+
+
+
+    <div class="header">
+        <div class="homebutton">
+          <div class="homebutton2"><a class="try"  href="{% url 'home'%}"><img class="home-image" src="{% static 'images/home.png' %}" alt=""></a></div>
+        </div>
+        <div class="headersearch">
+          <input class="headerinput" placeholder="Search..." type="text" name="" id="">
+        </div>
+  
+  
+        <div class="headeritems">
+          <div class="headeritemelement"><a class="try" href="{% url 'myshelf' %}"><img class="shelf-image" src="{% static 'images/shelf.jpeg'%}" alt=""></a></div>
+          <div class="headeritemelement"><a class="try" href="{% url 'history' %}"><img class="history-image" src="{% static 'images/history.png' %}" alt=""></a></div>
+          <div class="headeritemelement"><a class="try" href="{% url 'account' %}"><img class="account-image" src="{% static 'images/account.png' %}" alt=""></a></div>
+          <div><p><a href="{% url 'logout' %}">Logout</a></p></div>
+        </div>
+  
+    </div>
+  
+
+
+        <div class="history-summary"><h1>History</h1></div>
+        <div class="history-list-container">
+            <div class="history-label-container">
+                <div class="labels">image</div>
+                <div class="labels">Title</div>
+                <div class="labels">Author</div>
+                <div class="labels">Category</div>
+                <div class="labels">Date</div>
+                <div>return</div>
+            </div>
+            {% for item in historyitems %}
+                <div class="history-items">        
+                    <div class="labels"><img class="check-img" src="{{item.book.imageURL}}" alt=""></div>
+                    <div class="labels">{{item.book.title}}</div>
+                    <div class="labels">{{item.book.author}}</div>
+                    <div class="labels">{{item.book.category}}</div>   
+                    <p class="labels summary-items-date">{{item.returned_date}}</p>     
+                    <button class="Return-button">Return Book</button>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+
+
+
+
+<script src="{% static 'scripts/myshelf.js' %}"></script>    
 </body>
 </html>

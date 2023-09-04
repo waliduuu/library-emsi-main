@@ -34,6 +34,26 @@ class Book(models.Model):
     except:
         url = ''
     return url
+  
+
+
+
+#book history
+class BookHistory(models.Model):
+  customer = models.ForeignKey(customer, on_delete=models.CASCADE)
+  book = models.ForeignKey(Book, on_delete=models.CASCADE, blank=True, null=True)
+  returned_date = models.DateTimeField(null=True, blank=True)
+
+  # You can add more attributes as needed, like due date, fine amount, etc.
+
+  def __str__(self):
+      return f"{self.customer.name}'s borrowing history"
+
+
+
+
+
+  
       
   
 #class emprunter

@@ -7,6 +7,7 @@ urlpatterns = [
     path('confirmation/',views.confirmation, name='confirmation'),
     path('update_item/',views.updateitem, name='update-item'),
     path('delete_item/',views.deleteitem, name='delete-item'),
+    path('update_history/',views.updatehistory, name='update-history'),
     path('account/',views.account, name='account'),
     path('history/',views.history, name='history'),
     path('login/',views.loginpage, name='login'),
