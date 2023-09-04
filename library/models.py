@@ -12,7 +12,7 @@ class customer(models.Model):
   def __str__(self):
     if self.name:
       return self.name
-    return "Customer ID: {self.id}"
+    return "Customer ID: {self.name}"
 
 
 #class book

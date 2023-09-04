@@ -9,6 +9,27 @@
     <link rel="stylesheet" href="{% static 'css/home.css'%}">
 
 
+    <script>
+      let user = '{{request.user}}'
+
+function getToken(name) {
+let cookieValue = null;
+if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+       
+          }
+    }
+}
+return cookieValue;
+}
+const csrftoken = getToken('csrftoken');
+    </script>
 </head>
 <body>
   <div class="header">
@@ -68,7 +89,7 @@
           <div>{{item.quantity}}</div>
           <div class="test">
             <input type="date" name="" id="">
-            <button class="Remove-button">Remove</button>
+            <button data-book="{{item.book.id}}" data-action="remove" class="Remove-button remove-shelf">Remove</button>
           </div>
         </div>
         {% endfor %}

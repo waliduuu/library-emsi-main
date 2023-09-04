@@ -194,6 +194,34 @@ def updateitem(request):
 
 
 
+    
+
+def deleteitem(request):
+    data = json.loads(request.body)
+    bookid = data['bookid']
+    action = data['action']
+
+    print(bookid)
+    print(action)
+
+    customer = request.user.customer
+    book = Book.objects.get(id=bookid)
+    emprunt, created = Emprunt.objects.get_or_create(customer=customer, complete=False)
+
+    try:
+        empruntitem = EmpruntItem.objects.get(emprunt=emprunt, book=book)
+        empruntitem.delete()
+        return JsonResponse('Item was deleted', safe=False)
+    except EmpruntItem.DoesNotExist:
+        return JsonResponse('Item not found', status=404, safe=False)
+
+    empruntitem.save()
+
+    return JsonResponse('item was deleted', safe=False)
+
+
+
+
 
 
 
