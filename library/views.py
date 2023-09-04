@@ -3,7 +3,7 @@ from .models import *
 from django.http import JsonResponse
 import json
 
-from .forms import CreateUserForm
+from .forms import CreateUserForm, CustomerForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
@@ -69,9 +69,14 @@ def register(request):
         if form.is_valid():
             user = form.save()
             username = form.cleaned_data.get('username')
+            Name = form.cleaned_data.get('username')
+            Email = form.cleaned_data.get('email')
             
             customer.objects.create(
                 user=user,
+                name = Name,
+                email = Email
+                
             )
 
             messages.success(request, 'account was created for' + username)
@@ -246,7 +251,6 @@ def deleteitem(request):
     customer = request.user.customer
     book = Book.objects.get(id=bookid)
     emprunt, created = Emprunt.objects.get_or_create(customer=customer, complete=False)
-
     try:
         empruntitem = EmpruntItem.objects.get(emprunt=emprunt, book=book)
         empruntitem.delete()
@@ -272,8 +276,16 @@ def deleteitem(request):
 
 @login_required(login_url='login')
 def account(request):
-    context = {}
-    return render(request, 'library/html/account.html', context)
+        customer = request.user.customer
+        form = CustomerForm(instance=customer)
+
+        if request.method == 'POST':
+            form = CustomerForm(request.POST, request.FILES, instance=customer )
+            if form.is_valid():
+                form.save()
+
+        context = {'form' : form}
+        return render(request, 'library/html/account.html', context)
 
 
 

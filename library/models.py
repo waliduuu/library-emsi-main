@@ -8,11 +8,11 @@ class customer(models.Model):
   user = models.OneToOneField(User,on_delete=models.CASCADE, null=True, blank=True)
   name = models.CharField(max_length=30, null=True)
   email = models.CharField(max_length=200, null=True)
+  profile_pic = models.ImageField(default="profilepic.png",null=True, blank=True)
 # the return to see on the admin panel 
   def __str__(self):
-    if self.name:
-      return self.name
-    return "Customer ID: {self.name}"
+      return self.user.username
+
 
 
 #class book
@@ -47,7 +47,7 @@ class BookHistory(models.Model):
   # You can add more attributes as needed, like due date, fine amount, etc.
 
   def __str__(self):
-      return f"{self.customer.name}'s borrowing history"
+      return self.customer.user.username+"'s new borrowing history"
 
 
 
@@ -66,7 +66,10 @@ class Emprunt(models.Model):
   date_emprunt = models.DateField(null=True)
 
   def __str__(self):
-    return str(self.id)
+    if self.customer:
+        return self.customer.name
+    else:
+        return "Unassigned Emprunt"
   
   @property
   def addy(self):
@@ -78,6 +81,13 @@ class EmpruntItem(models.Model):
   emprunt = models.ForeignKey(Emprunt, on_delete=models.SET_NULL, blank=True, null=True)
   date_added = models.DateTimeField(auto_now_add=True)
   quantity = models.IntegerField(default=0, null=True, blank=True)
+
+  def __str__(self):
+    if self.emprunt and self.emprunt.customer:
+        return self.emprunt.customer.name
+    else:
+        return "Unassigned Empruntitem"
+
 
 
 class ConfirmationAdress(models.Model):
