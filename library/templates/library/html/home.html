@@ -35,18 +35,41 @@ const csrftoken = getToken('csrftoken');
         <div class="homebutton2"><a class="try"  href="{% url 'home'%}"><img class="home-image" src="{% static 'images/home.png' %}" alt=""></a></div>
       </div>
       <div class="headersearch">
-        <input class="headerinput" placeholder="Search..." type="text" name="" id="">
+        <form method="get" action="">
+        <div class="headersearch">
+          {{ myFilter.form.title }}
+        </div>
       </div>
-
+      
 
       <div class="headeritems">
         <div class="headeritemelement"><a class="try" href="{% url 'myshelf' %}"><img class="shelf-image" src="{% static 'images/shelf.jpeg'%}" alt=""></a></div>
-        <div class="headeritemelement"><a class="try" href="{% url 'history' %}"><img class="history-image" src="{% static 'images/history.png' %}" alt=""></a></div>
+        <div class="headeritemelement"><a class="try" href="{% url 'returning' %}"><img class="history-image" src="{% static 'images/history.png' %}" alt=""></a></div>
         <div class="headeritemelement"><a class="try" href="{% url 'account' %}"><img class="account-image" src="{% static 'images/account.png' %}" alt=""></a></div>
         <div><p><a href="{% url 'logout' %}">Logout</a></p></div>
       </div>
 
     </div>
+
+    
+    <div class="search-filters">
+      <form method="get" action="">
+
+        <div class="form-group">
+          {{ myFilter.form.category.label_tag }} <!-- Label for the 'title' field -->
+          {{ myFilter.form.category }}
+        </div>
+        <div class="form-group">
+          {{ myFilter.form.author.label_tag }} <!-- Label for the 'author' field -->
+          {{ myFilter.form.author }}
+        </div>
+        <!-- Add more form fields as needed -->
+    
+        <button type="submit" class="search-button">Search</button>
+      </form>
+    </div>
+
+    
 
     <div class="latest">
       <div class="title">
@@ -85,6 +108,10 @@ const csrftoken = getToken('csrftoken');
 
     <div class="madeforyou"></div>
 
+    <script>
+      var form_fields = document.getElementsByTagName('input')
+      form_fields[0].placeholder ='Search...';
+    </script> 
     <script src="{% static 'scripts/myshelf.js' %}"></script>
 </body>
 </html>

@@ -94,11 +94,14 @@ for(let i=0; i < addtohistorybuttons.length; i++){
   addtohistorybuttons[i].addEventListener('click', function(){
     let bookid = this.dataset.book
     let action = this.dataset.action
-    console.log(bookid, action)
+    let startingdateInput = document.getElementById('starting-date');
+    let thestartingdate = startingdateInput.value; 
+
+    console.log(bookid, action, thestartingdate)
     if(user === 'AnonymousUser'){
       console.log('anon user')
     }else{
-      additemtohistory(bookid, action);
+      additemtohistory(bookid, action, thestartingdate);
     }
   })
 }
@@ -106,7 +109,7 @@ for(let i=0; i < addtohistorybuttons.length; i++){
 
 
 
-function additemtohistory(bookid, action){
+function additemtohistory(bookid, action, thestartingdate){
   console.log('user is logged in')
   var url = '/pages/update_history/'
 
@@ -116,7 +119,7 @@ function additemtohistory(bookid, action){
       'Content-Type':'application/json',
       'X-CSRFToken':csrftoken
     },
-    body:JSON.stringify({'bookid': bookid, 'action': action})
+    body:JSON.stringify({'bookid': bookid, 'action': action, 'thestartingdate': thestartingdate})
   })
 
   .then((response) =>{
@@ -126,3 +129,53 @@ function additemtohistory(bookid, action){
     console.log(data)
   })
 }
+
+
+
+
+
+
+
+
+
+
+let returnbook = document.getElementsByClassName("return-book")
+for(let i=0; i < returnbook.length; i++){
+  returnbook[i].addEventListener('click', function(){
+    let bookid = this.dataset.book
+    let action = this.dataset.action
+    let returningdateInput = document.getElementById('returning-date');
+    let thereturningdate = returningdateInput.value; 
+    console.log(bookid, action)
+    if(user === 'AnonymousUser'){
+      console.log('anon user')
+    }else{
+      returnthebook(bookid, action, thereturningdate);
+    }
+  })
+}
+
+
+
+
+function returnthebook(bookid, action, thereturningdate){
+  console.log('user is logged in')
+  var url = '/pages/return_book/'
+
+  fetch(url, { 
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json',
+      'X-CSRFToken':csrftoken
+    },
+    body:JSON.stringify({'bookid': bookid, 'action': action, 'thereturningdate': thereturningdate})
+  })
+
+  .then((response) =>{
+    return response.json()
+  })
+  .then((data) =>{
+    console.log(data)
+  })
+}
+

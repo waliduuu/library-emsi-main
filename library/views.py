@@ -12,6 +12,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user
 
+from .filters import Bookfilter
+
 
 
 # Create your view
@@ -108,13 +110,16 @@ def home(request):
         items =[] 
         emprunt = {'addy': False}
 
-    context = {'items':items}        
-
-
-
-
     books = Book.objects.all()
-    context = {'books':books}
+    myFilter = Bookfilter(request.GET, queryset=books)  # Apply the filter to the queryset
+    books = myFilter.qs  # Get the filtered queryset
+
+
+    context = {
+        'items': items,
+        'books': books,  # Assign the filtered queryset directly to 'books'
+        'myFilter': myFilter,
+    }
     return render(request, 'library/html/home.html', context)
 
 
@@ -206,6 +211,9 @@ def updatehistory(request):
     data = json.loads(request.body)
     bookid = data['bookid']
     action = data['action']
+    thestartingdate = data['thestartingdate']
+    
+    
 
 
     print(bookid)
@@ -216,11 +224,15 @@ def updatehistory(request):
     emprunt, created = Emprunt.objects.get_or_create(customer=customer, complete=False)
     empruntitem, created = EmpruntItem.objects.get_or_create(emprunt=emprunt, book=book)
     history, created = BookHistory.objects.get_or_create(customer=customer, book=book)
+    history.starting_date = thestartingdate
+    book.status = 0
+    book.save()
     
     empruntitem.delete()
     emprunt.delete()
     history.save()
     return JsonResponse('item was added to history', safe=False)
+
 
 
 def history(request):
@@ -264,6 +276,52 @@ def deleteitem(request):
 
 
 
+
+
+
+
+
+@login_required(login_url='login')
+def returnbook(request): 
+
+    data = json.loads(request.body)
+    bookid = data['bookid']
+    action = data['action']
+    thereturningdate = data['thereturningdate']
+
+
+    print(bookid)
+    print(action)
+
+    customer = request.user.customer
+    book = Book.objects.get(id=bookid)
+    thereturn, created = bookreturning.objects.get_or_create(book=book, customer=customer)
+    history = BookHistory.objects.get(book=book)
+
+    thereturn.return_date = thereturningdate
+    
+    book.status = 1
+    book.save()
+    thereturn.save()
+    history.delete()
+    
+    
+    
+    return JsonResponse('item was returned', safe=False)
+
+
+def returning(request):
+    if request.user.is_authenticated:
+
+        customer = request.user.customer
+        returnitems = bookreturning.objects.filter(customer=customer)
+    
+    else:
+        returnitems =[] 
+
+    context = {'returnitems': returnitems}
+    
+    return render(request,'library/html/returnings.html', context)
 
 
 

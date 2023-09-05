@@ -56,36 +56,29 @@
         </div>
   
     </div>
-  
 
-
-        <div class="history-summary"><h1>History : 'reading now'</h1></div>
+    <div class="history-summary"><h1>History : 'Returned Books'</h1></div>
             <div class="history-list-container">
-                <div class="history-label-container">
+                <div class="return-label-container">
                     <div class="labels">image</div>
                     <div class="labels">Title</div>
                     <div class="labels">Author</div>
                     <div class="labels">Category</div>
-                    <div class="labels">Date</div>
-                    <div>return Book</div>
+                    <div class="labels">Returning Date</div>
                 </div>
-                {% for item in historyitems %}
-                    <div class="history-items">        
+                {% for item in returnitems %}
+                    <div class="return-items">        
                         <div class="labels"><img class="check-img" src="{{item.book.imageURL}}" alt=""></div>
                         <div class="labels">{{item.book.title}}</div>
                         <div class="labels">{{item.book.author}}</div>
                         <div class="labels">{{item.book.category}}</div>   
-                        <p class="labels summary-items-date">{{item.starting_date}}</p>   
-                        <div>
-                            <input id="returning-date" class="return-date-input" type="date">
-                            <button data-book="{{item.book.id}}" data-action="Confirm" class="Return-button return-book">Return Book</button>
-                        </div>  
-                        
+                        <p class="labels summary-items-date">{{item.return_date}}</p>                           
                     </div>
                 {% endfor %}
 
             </div>
          </div>
+
 
 
 

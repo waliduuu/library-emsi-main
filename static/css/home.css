@@ -52,10 +52,11 @@ body {
   height: 40px;
 }
 .headersearch{
-  padding-top: 16px;
+  padding-top: 9px;
   text-align: center;
 }
-.headerinput{
+
+.headersearch  input[type="text"]{
   height: 30px;
   width: 190px;
   border: none;
@@ -63,20 +64,20 @@ body {
   border-bottom-width: 5px;
   border-bottom-color: black;
   background-color: transparent;
+  margin-right: 50px;
+
+
+  &:focus{
+    outline: none;
+  }
 }
-.headerinput:focus{
-  outline: none;
-}
-.headerinput::-webkit-input-placeholder {
-  padding-left: 5px;
-  font-size: 15px;
-  color: #3c3c3c;
-}
-.headerinput::placeholder{
+::placeholder{
   color: white;
 }
+
+
 .latest{
-  margin-top: 130px;
+  margin-top: 90px;
 }
 .title{
   text-align: center;
@@ -137,4 +138,66 @@ body {
 }
 .book-borrow-button-un:hover{
   cursor: not-allowed;
+}
+
+.search-filters{
+  margin-top: 130px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Style the form container */
+.search-filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: auto;
+  margin-top: 140px;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  width: 600px;
+}
+
+/* Style the form fields */
+.form-group {
+  margin-bottom: 10px;
+}
+
+/* Style the form labels */
+.form-group label {
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Style the form input fields */
+.form-group input[type="text"], .form-group input[type="number"], .form-group input[type="date"] {
+  width: 100px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* Style the submit button */
+.search-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Hover effect for the submit button */
+.search-button:hover {
+  background-color: #0056b3;
 }

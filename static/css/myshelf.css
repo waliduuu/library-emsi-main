@@ -85,7 +85,7 @@
     border-bottom-style: solid;
 }
 .container-2-placement{
-    height: 130px;
+    height: 140px;
     align-items: center;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -108,6 +108,19 @@
     background-color: rgb(241, 41, 41);
 }
 .Remove-button:hover{
+    opacity: 0.6;
+    color: white;
+    cursor: pointer;
+}
+
+.history-confirm{
+    height: 30px;
+    color: black;
+    margin-top: 12px;
+    width: 90px;
+    background-color: rgb(12, 171, 12);
+}
+.history-confirm:hover{
     opacity: 0.6;
     color: white;
     cursor: pointer;

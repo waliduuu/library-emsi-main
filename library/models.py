@@ -42,7 +42,7 @@ class Book(models.Model):
 class BookHistory(models.Model):
   customer = models.ForeignKey(customer, on_delete=models.CASCADE)
   book = models.ForeignKey(Book, on_delete=models.CASCADE, blank=True, null=True)
-  returned_date = models.DateTimeField(null=True, blank=True)
+  starting_date = models.DateField(null=True, blank=True)
 
   # You can add more attributes as needed, like due date, fine amount, etc.
 
@@ -75,6 +75,12 @@ class Emprunt(models.Model):
   def addy(self):
     addy = True
     return addy
+  
+
+
+
+
+
  
 class EmpruntItem(models.Model):
   book = models.ForeignKey(Book, on_delete=models.SET_NULL, blank=True, null=True)
@@ -90,26 +96,16 @@ class EmpruntItem(models.Model):
 
 
 
-class ConfirmationAdress(models.Model):
-  customer = models.ForeignKey(customer, on_delete=models.SET_NULL,blank=True, null=True )
-  emprunt = models.ForeignKey(Emprunt, on_delete=models.SET_NULL, blank=True, null=True)
-  address = models.CharField(max_length=30, null=True)
-  addressl2 = models.CharField(max_length=30, null=True)
-  city = models.CharField(max_length=30, null=True)
-  state = models.CharField(max_length=30, null=True)
-  zipcode = models.CharField(max_length=30, null=True)
-  date_added = models.DateTimeField(auto_now_add=True)
-
-
 
 class bookreturning(models.Model):
   customer = models.ForeignKey(customer, on_delete=models.SET_NULL,blank=True, null=True )
   book = models.ForeignKey(Book, on_delete=models.SET_NULL,blank=True, null=True )
-  date_fin_emprunt = models.DateField(auto_now_add=True)
-  transaction_id = models.CharField(max_length=200, null= True)
-
+  return_date = models.DateField(null=True, blank=True)
 
   def __str__(self):
-    return self.address
+    if self.customer.name:
+        return self.customer.name
+    else:
+        return "Unassigned return"
 
 
