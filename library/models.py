@@ -4,18 +4,24 @@ from django.contrib.auth.models import User
 # Create your models here.
 #Class client
 # # onetoonefield means that only one user per client 
+
+
+# customer model 
+
 class customer(models.Model):
   user = models.OneToOneField(User,on_delete=models.CASCADE, null=True, blank=True)
   name = models.CharField(max_length=30, null=True)
   email = models.CharField(max_length=200, null=True)
   profile_pic = models.ImageField(default="profilepic.png",null=True, blank=True)
 # the return to see on the admin panel 
+
+# return the user username related to the customer
   def __str__(self):
       return self.user.username
 
 
 
-#class book
+#model book
 class Book(models.Model):
   title = models.CharField(max_length=30, null=True)
   author = models.CharField(max_length=30, null=True)
@@ -24,9 +30,12 @@ class Book(models.Model):
   status = models.CharField(max_length=30, null=True)
   image = models.ImageField(null=True, blank=True)
 
+  # return the book title
+
   def __str__(self):
     return self.title
   
+  # if theres no image we add a blan so we dont get an error
   @property
   def imageURL(self):
     try:
