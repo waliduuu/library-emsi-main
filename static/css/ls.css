@@ -13,12 +13,19 @@ body{
   left: 0;
   right: 0;
 
+
 }
 .theform-login{
   height: 200px;
   width: 200px;
   margin: auto;
   margin-top: 350px;
+  border-style: solid;
+  border-color: black;
+  border-width: 5px;
+  padding-left: 20px;
+  padding-bottom: 12px;
+
 
 }
 .theform-signup{
